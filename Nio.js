@@ -43,7 +43,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
-       
+       console.log(user)
+       console.log(userID)
+       if(userID==256004366127857664){user='Danchou'}
         args = args.splice(1);
         switch(cmd) {
             case 'hello':
@@ -53,7 +55,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 1:
                 bot.sendMessage({
                     to: channelID,
-                    message: 'The melody that reside in your heart, I quite like it.'
+                    message: `${user}, the melody that reside in your heart, I quite like it.`
                 })
                 ;
                 break;
@@ -67,7 +69,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 3:
                 bot.sendMessage({
                     to: channelID,
-                    message: 'The Nine Realm Harp has a very beatiful tune, it is kinda similar to your melody. I like it.'
+                    message: `The Nine Realm Harp has a very beatiful tune, it is kinda similar to your melody ${user}. I like it.`
                 })
                 ;
                 break;
@@ -88,14 +90,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 6:
                 bot.sendMessage({
                     to: channelID,
-                    message: 'For the next song, I will match it with danchou'
+                    message: `For the next song, I will match it with ${user}`
                 })
                 ;
                 break;
                 case 7:
                 bot.sendMessage({
                     to: channelID,
-                    message: 'Let us perform together'
+                    message: `Let us perform together ${user}`
                 })
                 ;
                 break;
@@ -109,7 +111,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 case 9:
                 bot.sendMessage({
                     to: channelID,
-                    message: 'When will we performing together again?'
+                    message: `When will we performing together again ${user}?`
                 })
                 ;
                 break;
@@ -167,7 +169,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             {
                 bot.sendMessage({
                     to: channelID,
-                    message: 'You cannot do that here.'
+                    message: `${user}, you cannot do that here.`
                 });
             }
             else{
@@ -178,21 +180,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             {
                 bot.sendMessage({
                     to: channelID,
-                    message: 'your melody is very nice, you got SSR'
+                    message: `${user}, your melody is very nice, you got SSR`
                 })
             }
             else if(RNG==4||RNG==5||RNG==6||RNG==7||RNG==8||RNG==9||RNG==10||RNG==11||RNG==12||RNG==13||RNG==14||RNG==15||RNG==16||RNG==17||RNG==18)
             {
                 bot.sendMessage({
                     to: channelID,
-                    message: 'your melody is quite good, you got SR'
+                    message: `${user}, your melody is quite good, you got SR`
                 })
             }
             else
             {
                 bot.sendMessage({
                     to: channelID,
-                    message: 'your melody is as bad as that lizard, you got R'
+                    message: `${user}, your melody is as bad as that lizard, you got R`
                 })
             }
             }   
@@ -204,7 +206,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             {
                 bot.sendMessage({
                     to: channelID,
-                    message: 'You cannot do that here.'
+                    message: `${user}, you cannot do that here.`
                 });
             }
             else
@@ -237,16 +239,45 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             }
             bot.sendMessage({
                 to: channelID,
-                message: `Your Melody giving you these\n${gacha[0]}\n${gacha[1]}\n${gacha[2]}\n${gacha[3]}\n${gacha[4]}\n${gacha[5]}\n${gacha[6]}\n${gacha[7]}\n${gacha[8]}\n${gacha[9]}`
+                message: `Your Melody giving you these ${user}\n${gacha[0]}\n${gacha[1]}\n${gacha[2]}\n${gacha[3]}\n${gacha[4]}\n${gacha[5]}\n${gacha[6]}\n${gacha[7]}\n${gacha[8]}\n${gacha[9]}`
             })
         }
+            
+            break;
+            //----------------------------------------
+            case 'ask':
+            var RNG = Math.floor((Math.random() * 3) + 1);
+            switch(RNG)
+                {
+                    case 1:
+                    bot.sendMessage({
+                    to: channelID,
+                    message: 'Yes you should do it'
+                    })
+                    ;
+                    break;
+                    case 2:
+                    bot.sendMessage({
+                    to: channelID,
+                    message: 'Just believe in yourself'
+                    })
+                    ;
+                    break;
+                    case 3:
+                    bot.sendMessage({
+                    to: channelID,
+                    message: 'You better not.'
+                    })
+                    ;
+                    break;
+                }
             
             break;
             //-------------------------------------------------------
             case 'help':
             bot.sendMessage({
                 to: channelID,
-                message: '**these are the available command for me**\n\n!draw(simulate 1 premium draw)\n!d10(simulate 10 part premium draw)\n!Hi(praising my creator danchou!)\n!hello(I will speak)\n!dogeza(beaDogezaSticker)\n!kono(drangPoke2sticker)\n!aww(drangAwwSticker)'
+                message: '**these are the available command for me**\n\n!draw(simulate 1 premium draw)\n!d10(simulate 10 part premium draw)\n!Hi(praising my creator danchou!)\n!hello(I will speak)\n!ask(I will answer your hesitation)\n!dogeza(beaDogezaSticker)\n!kono(drangPoke2sticker)\n!aww(drangAwwSticker)'
             })
             ;
             break;
